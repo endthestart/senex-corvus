@@ -20,17 +20,20 @@ detail. It belongs to the SENEX photo suite with SENEX Pictor (a nightscape stac
   renamed from `andermic-photo-importer` on 2026-11-05; old URLs redirect.
 - Released: the [0.2.0-alpha.1 source preview](https://github.com/endthestart/senex-corvus/releases/tag/v0.2.0-alpha.1),
   published 2026-11-05 from `737817f`. Source only; no app binaries are published anywhere.
-- `main` is `737817f`. `./test.sh` passes 261 synthetic checks, and a fresh clone tests and builds
+- `main` is the release commit `737817f` plus PR #8 (this handoff and the new links). `./test.sh` passes 261 synthetic checks, and a fresh clone tests and builds
   on the Intel Mac Pro. CI builds, tests and package-verifies Apple silicon and Intel on every push
   to `main` and every pull request.
 - Done in October and November: the rename to Corvus (bundle ID `com.senexapps.corvus`), the design
   shared with Pictor, the [October code review](audit/CLEANUP-2026-10.md) and its fixes, ExifTool
   13.60, the house-style formatter in CI, and the split of `MainWindow.swift` and `ImportCore.swift`.
-- Deleted merged branches (2026-11-05), with their tips:
+- `main` is the only branch on GitHub. Deleted merged branches, with their tips:
   `claude/corvus-pictor-design-0851ec` f7b3a0198c53fe41f45a9d01a07fc68dbb654d00,
   `claude/corvus-split-mainwindow` e49d5715c792002008e6b7b3c84a8e450e14334d,
   `claude/corvus-split-importcore` 58963701775675f8e800a4ec90fa8b70346c26ee and
-  `claude/corvus-release-0.2.0-alpha.1` ef08cae10a5f1b4f70cd9af61355610ab32c8173.
+  `claude/corvus-release-0.2.0-alpha.1` ef08cae10a5f1b4f70cd9af61355610ab32c8173 (2026-11-05), and
+  `codex/sd-card-metadata-cache` 9babd69011d5405b6e812e3e0b00ceb7e39db4f9 (2026-11-13; its code and
+  tests were already on `main` through PR #4).
+- The unpublished `v0.1.0-alpha.1` draft release was deleted on 2026-11-13; its tag remains.
 
 ## Build, test and release
 
@@ -83,13 +86,8 @@ cd senex-corvus
 
 ## Owner steps still pending
 
-- Merge PR #8, which adds this handoff and the links to the new repository name.
-- Decide on `codex/sd-card-metadata-cache` on GitHub. Its PR #3 was closed and its ADRs 0011 to 0014
-  are on `main`, but the branch has not been confirmed empty, so it was kept.
-- Decide on the unpublished `v0.1.0-alpha.1` draft release, which still holds four development
-  files from 2026-10-04.
-- Remove the worktree `.claude/worktrees/corvus-pictor-design-0851ec` once PR #8 is merged
-  (`git worktree remove`), and fast-forward the main checkout's `main`.
+- Remove the worktree `.claude/worktrees/corvus-pictor-design-0851ec` and its local branch
+  (`git worktree remove`, then `git branch -D`); all of its work is on `main`.
 - Pictor items that touch this suite: rename its Gitea repo to `senex-pictor`, and name a NAS folder
   for its `.sources` copy (approved, not done for lack of a path).
 
